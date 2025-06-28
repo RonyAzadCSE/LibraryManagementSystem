@@ -1,22 +1,67 @@
+/* Custom CSS for Library Management System */
+
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-select:focus, .input-group-text:focus {
+    box-shadow: 0 0 0 .1rem rgba(13,110,253,.25), 0 0 0 .25rem rgba(108, 117, 125, 0.25);
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+.card {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
 }
 
-body {
-  margin-bottom: 60px;
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.form-control, .form-select {
+    border-radius: 0.3rem;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    border-radius: 0.3rem;
+}
+
+    .btn-primary:hover {
+        background-color: #0b5ed7;
+        border-color: #0a58ca;
+    }
+
+.table {
+    border-radius: 0.5rem;
+    overflow: hidden; /* Ensures rounded corners on table */
+}
+
+    .table th, .table td {
+        vertical-align: middle;
+    }
+
+.badge {
+    padding: 0.5em 0.7em;
+    border-radius: 0.25rem;
+}
+
+/* Specific styling for action buttons */
+.btn-action {
+    margin-right: 5px;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
 }
