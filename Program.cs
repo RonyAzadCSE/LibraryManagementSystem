@@ -1,6 +1,7 @@
 // Program.cs
-using Microsoft.EntityFrameworkCore;
 using LibraryManagementSystem.Data;
+using LibraryManagementSystem.Models;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 var app = builder.Build();
+
+
+
+
+// ... rest of Program.cs ...
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

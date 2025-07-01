@@ -1,0 +1,73 @@
+﻿@model LibraryManagementSystem.Models.BookCategory
+
+@{
+    ViewData["Title"] = "Create Book Category";
+}
+
+<div class="card shadow p-4 mb-4 bg-white rounded">
+    <div class="card-header bg-white border-0">
+        <h2 class="card-title mb-0">Create New Book Category</h2>
+    </div>
+    <div class="card-body">
+        <form id="createCategoryForm">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+            <div class="mb-3">
+                <label asp-for="CategoryName" class="form-label"></label>
+                <input asp-for="CategoryName" class="form-control" />
+                <span asp-validation-for="CategoryName" class="text-danger"></span>
+            </div>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save me-1"></i> Create
+                </button>
+                <a asp-action="Index" class="btn btn-outline-secondary">
+                    <i class="fas fa-arrow-left me-1"></i> Back to List
+                </a>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).ready(function () {
+            $('#createCategoryForm').submit(function (e) {
+                e.preventDefault();
+
+                Swal.fire({
+                    title: 'Saving...',
+                    allowOutsideClick: false,
+                    didOpen: () => Swal.showLoading()
+                });
+
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("Create", "BookCategory")',
+                    data: $(this).serialize(),
+                    success: function () {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Created!',
+                            text: 'Book category created successfully.'
+                        });
+
+                        // Reset form for next entry
+                        $('#createCategoryForm')[0].reset();
+                    },
+                    error: function () {
+                        Swal.fire('Error', 'Failed to create the category.', 'error');
+                    }
+                });
+            });
+        });
+    </script>
+}
+

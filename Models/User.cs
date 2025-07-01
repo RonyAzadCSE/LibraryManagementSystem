@@ -15,8 +15,6 @@ namespace LibraryManagementSystem.Models
         public bool IsActive { get; set; }
         public DateTime RegistrationDate { get; set; }
 
-        // Navigation property for borrowing history
-        public ICollection<BorrowRecord> BorrowRecords { get; set; }
-        public ICollection<BorrowRequest> BorrowRequests { get; set; }
+    
     }
 }

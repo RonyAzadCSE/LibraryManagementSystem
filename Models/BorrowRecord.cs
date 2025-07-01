@@ -15,8 +15,5 @@ namespace LibraryManagementSystem.Models
         public bool IsFinePaid { get; set; }
 
         // Navigation properties
-        public User User { get; set; }
-        public Book Book { get; set; }
-        public ICollection<Fine> Fines { get; set; }
     }
 }

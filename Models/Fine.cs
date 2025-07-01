@@ -11,7 +11,5 @@ namespace LibraryManagementSystem.Models
         public bool IsPaid { get; set; }
         public string Reason { get; set; } // e.g., "Overdue"
 
-        // Navigation property
-        public BorrowRecord BorrowRecord { get; set; }
     }
 }

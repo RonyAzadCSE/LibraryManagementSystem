@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LibraryManagementSystem.Models
 {
@@ -15,10 +16,9 @@ namespace LibraryManagementSystem.Models
         public DateTime PublishedDate { get; set; }
         public int TotalCopies { get; set; }
         public int AvailableCopies { get; set; } // Calculated field
-
+        
         // Navigation property
-        public BookCategory BookCategory { get; set; }
-        public ICollection<BorrowRecord> BorrowRecords { get; set; }
-        public ICollection<BorrowRequest> BorrowRequests { get; set; }
+        [ForeignKey("BookCategoryId")]
+        public virtual BookCategory BookCategory { get; set; }
     }
 }
